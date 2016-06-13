@@ -16,7 +16,7 @@ import com.hrms.exception.DAOException;
 /**
  * Aspect to log errors occurring during application work
  * 
- * @author Created by hadean777 <br>
+ * @author Created by Natalliia <br>
  * @author Last modified by $Author: hadean777 $ <br>
  * @author Last modified on $Date: 2015-05-05 18:30:00 +0200 (Tue, 05 May 2015) $ at revision $Revision:   $ <br>
  */
@@ -40,15 +40,15 @@ public class LoggingAdvice implements Ordered {
 		order = p_order;
 	}
 	
-	@AfterThrowing(pointcut = "execution(* com.hadean777.miniboard.persistence.dao.hibernate.*.*(..))", 
+	@AfterThrowing(pointcut = "execution(* com.hrms.persistence.dao.hibernate.*.*(..))", 
 			throwing = "error")
 	public void executeDAOLevelLogAdivce(JoinPoint jp, Throwable error){
 		Logger logger = LoggerFactory.getLogger( jp.getTarget().getClass() );
 		logger.error( messageSource.getMessage( AppConstants.MSG_KEY_ERROR_LOG, null, null), error );
 	}
 	
-	@AfterThrowing(pointcut = "execution(* com.hadean777.miniboard.persistence.manager.impl.*.*(..)) "
-			+ " || execution(* com.hadean777.miniboard.auth.*.*(..))" + " || execution(* com.hadean777.miniboard.webapp.controller.*.*(..))", 
+	@AfterThrowing(pointcut = "execution(* com.hrms.persistence.manager.impl.*.*(..)) "
+			+ " || execution(* com.hrms.auth.*.*(..))" + " || execution(* com.hrms.webapp.controller.*.*(..))", 
 			throwing = "error")
 	public void executeBusinessLevelLogAdivce(JoinPoint jp, Throwable error){
 		if( !(error instanceof DAOException) ) {
