@@ -16,8 +16,8 @@
         <jackson.core-version>2.2.2</jackson.core-version>
         <org.hibernate.version>4.3.6.Final</org.hibernate.version>
         <maven.build.timestamp.format>dd/MM/yyyy HH:mm</maven.build.timestamp.format>
-        <source.java.version>1.7</source.java.version>
-        <target.java.version>1.7</target.java.version>
+        <source.java.version>1.8</source.java.version>
+        <target.java.version>1.8</target.java.version>
 	</properties>
   <dependencies>
   <!-- Test -->
@@ -255,9 +255,9 @@
 	        </dependency>				
 		
 	  </dependencies>
-  <build>
+	<build>  
     <finalName>com.hrms</finalName>
-   <plugins>
+	<plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
